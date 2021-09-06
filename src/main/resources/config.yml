@@ -1,0 +1,49 @@
+settings:
+  server-id: "over-1"
+  worldborder: true
+
+database:
+  #MongoDB or MuSQL
+  type: "MongoDB"
+  hostname: "127.0.0.1"
+  username: "root"
+  password: "password"
+  #(3306 MySQL, 27017 MongoDB)
+  port: 27017
+
+redis:
+  hostname: "127.0.0.1"
+  password: "password"
+  port: 6379
+
+#Each world can have multiple zones (Each server must have same world names)
+#If you eanble worldborder feature each zone must be squared.
+zones:
+  north-overworld:
+    server-id: "over-1"
+    world: "world"
+    X-Min: -512
+    Z-Min: -512
+    X-Max: 0
+    Z-Max: 512
+  south-overworld:
+    server-id: "over-2"
+    world: "world"
+    X-Min: -512
+    Z-Min: 0
+    X-Max: 512
+    Z-Max: 512
+  nether:
+    server-id: "extra"
+    world: "world_nether"
+    X-Min: -512
+    Z-Min: -512
+    X-Max: 512
+    Z-Max: 512
+  end:
+    server-id: "extra"
+    world: "world_the_end"
+    X-Min: -512
+    Z-Min: -512
+    X-Max: 512
+    Z-Max: 512

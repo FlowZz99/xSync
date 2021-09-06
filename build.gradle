@@ -1,0 +1,38 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'java'
+}
+
+group = 'it.flowzz'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc-repo'
+        url = 'https://papermc.io/repo/repository/maven-public/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+}
+
+dependencies {
+    compileOnly files('libs/Paper-1.17.1.jar')
+    compileOnly 'org.mongodb:mongodb-driver-sync:4.3.0'
+    compileOnly 'com.zaxxer:HikariCP:5.0.0'
+    compileOnly 'redis.clients:jedis:3.6.3'
+    compileOnly 'com.github.luben:zstd-jni:1.5.0-4'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    compileOnly 'org.jetbrains:annotations:22.0.0'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        setDuplicatesStrategy(DuplicatesStrategy.INCLUDE)
+        filter ReplaceTokens, tokens: [version: version]
+    }
+}

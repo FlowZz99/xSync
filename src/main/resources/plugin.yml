@@ -1,0 +1,10 @@
+name: xSync
+version: @version@
+main: it.flowzz.xsync.SyncPlugin
+api-version: 1.17
+authors: [ _FlowZz_ ]
+
+libraries:
+  - org.mongodb:mongodb-driver-sync:4.3.0
+  - com.zaxxer:HikariCP:5.0.0
+  - redis.clients:jedis:3.6.3
